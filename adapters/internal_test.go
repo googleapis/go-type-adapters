@@ -16,6 +16,8 @@ package adapters
 
 import "testing"
 
+// Note: This only works for primitive types; it is a bludgeon for avoiding
+// excessively long-winded tests.
 func assertEqual(t *testing.T, name string, got, want interface{}) {
 	t.Run(name, func(t *testing.T) {
 		if got != want {
