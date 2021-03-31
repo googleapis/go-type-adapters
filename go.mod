@@ -1,6 +1,6 @@
 module github.com/googleapis/go-type-adapters
 
-go 1.13
+go 1.11
 
 require (
 	github.com/golang/protobuf v1.5.1
