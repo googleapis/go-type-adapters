@@ -34,13 +34,13 @@ func TestFractionRat(t *testing.T) {
 				Numerator:   test.num,
 				Denominator: test.denom,
 			}
-			rat := FractionToRat(fraction)
-			t.Run("FractionToRat", func(t *testing.T) {
+			rat := ProtoFractionToRat(fraction)
+			t.Run("ProtoFractionToRat", func(t *testing.T) {
 				assertEqual(t, "rat.Num", rat.Num().Int64(), test.num)
 				assertEqual(t, "rat.Denom", rat.Denom().Int64(), test.denom)
 			})
-			t.Run("RatToFraction", func(t *testing.T) {
-				fraction = RatToFraction(rat)
+			t.Run("RatToProtoFraction", func(t *testing.T) {
+				fraction = RatToProtoFraction(rat)
 				assertEqual(t, "frac.Num", fraction.GetNumerator(), test.num)
 				assertEqual(t, "frac.Denom", fraction.GetDenominator(), test.denom)
 			})

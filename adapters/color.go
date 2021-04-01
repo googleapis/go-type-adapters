@@ -22,7 +22,7 @@ import (
 	wpb "google.golang.org/protobuf/types/known/wrapperspb"
 )
 
-// ColorToRGBA returns an RGBA based on the provided google.type.Color.
+// ProtoColorToRGBA returns an RGBA based on the provided google.type.Color.
 // If alpha is not set in the proto, full opacity is assumed.
 //
 // Note: Converting between a float using [0, 1] to an int using [0, 256)
@@ -36,9 +36,9 @@ import (
 // rounded up to 128 rather than rounded down to 127.
 //
 // Because of this fuzziness and precision loss, it is NOT guaranteed that
-// ColorToRGBA and RGBAToColor are exact inverses, and both functions will
-// lose precision.
-func ColorToRGBA(c *cpb.Color) *color.RGBA {
+// ProtoColorToRGBA and RGBAToProtoColor are exact inverses, and both functions
+// will lose precision.
+func ProtoColorToRGBA(c *cpb.Color) *color.RGBA {
 	// Determine the appropriate alpha value.
 	// If alpha is unset, full opacity is the proper default.
 	alpha := uint8(255)
@@ -55,7 +55,7 @@ func ColorToRGBA(c *cpb.Color) *color.RGBA {
 	}
 }
 
-// RGBAToColor returns a google.type.Color based on the provided RGBA.
+// RGBAToProtoColor returns a google.type.Color based on the provided RGBA.
 //
 // Note: Converting between ints using [0, 256) and a float using [0, 1]
 // causes some cognitive dissonance between accuracy and user expectations.
@@ -69,9 +69,9 @@ func ColorToRGBA(c *cpb.Color) *color.RGBA {
 // unintentional.
 //
 // Because of this fuzziness and precision loss, it is NOT guaranteed that
-// ColorToRGBA and RGBAToColor are exact inverses, and both functions will
-// lose precision.
-func RGBAToColor(rgba *color.RGBA) *cpb.Color {
+// ProtoColorToRGBA and RGBAToProtoColor are exact inverses, and both functions
+// will lose precision.
+func RGBAToProtoColor(rgba *color.RGBA) *cpb.Color {
 	return &cpb.Color{
 		Red:   float32(int(rgba.R)*100/255) / 100,
 		Green: float32(int(rgba.G)*100/255) / 100,

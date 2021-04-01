@@ -51,7 +51,7 @@ func TestDateTime(t *testing.T) {
 			}
 
 			// Convert to a time.Time.
-			tm, err := DateTimeToNativeTime(dt)
+			tm, err := ProtoDateTimeToTime(dt)
 			if err != nil {
 				t.Fatal(err)
 			}

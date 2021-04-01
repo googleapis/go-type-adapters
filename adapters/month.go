@@ -20,8 +20,8 @@ import (
 	mpb "google.golang.org/genproto/googleapis/type/month"
 )
 
-// ToNativeMonth converts a google.type.Month to a golang Month.
-func ToNativeMonth(m mpb.Month) time.Month {
+// ToMonth converts a google.type.Month to a golang Month.
+func ToMonth(m mpb.Month) time.Month {
 	return time.Month(m.Number())
 }
 

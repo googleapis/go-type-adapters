@@ -34,8 +34,8 @@ func TestDate(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			datePb := &dpb.Date{Year: int32(test.y), Month: int32(test.m), Day: int32(test.d)}
 			times := map[string]time.Time{
-				"local": DateToNativeLocalTime(datePb),
-				"utc":   DateToNativeUTCTime(datePb),
+				"local": ProtoDateToLocalTime(datePb),
+				"utc":   ProtoDateToUTCTime(datePb),
 			}
 			for k, time := range times {
 				t.Run(k, func(t *testing.T) {

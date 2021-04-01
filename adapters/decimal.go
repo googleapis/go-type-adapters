@@ -24,8 +24,8 @@ import (
 	dpb "google.golang.org/genproto/googleapis/type/decimal"
 )
 
-// DecimalToFloat converts the provided google.type.Decimal to a big.Float.
-func DecimalToFloat(d *dpb.Decimal) (*big.Float, error) {
+// ProtoDecimalToFloat converts the provided google.type.Decimal to a big.Float.
+func ProtoDecimalToFloat(d *dpb.Decimal) (*big.Float, error) {
 	value := strings.ToLower(d.GetValue())
 
 	// Determine the required precision.
@@ -41,9 +41,9 @@ func DecimalToFloat(d *dpb.Decimal) (*big.Float, error) {
 	return f, err
 }
 
-// DecimalToFloat64 converts the provided google.type.Decimal to a float64.
-func DecimalToFloat64(d *dpb.Decimal) (float64, big.Accuracy, error) {
-	f, err := DecimalToFloat(d)
+// ProtoDecimalToFloat64 converts the provided google.type.Decimal to a float64.
+func ProtoDecimalToFloat64(d *dpb.Decimal) (float64, big.Accuracy, error) {
+	f, err := ProtoDecimalToFloat(d)
 	if err != nil {
 		return 0.0, big.Exact, err
 	}
@@ -51,15 +51,15 @@ func DecimalToFloat64(d *dpb.Decimal) (float64, big.Accuracy, error) {
 	return f64, accuracy, nil
 }
 
-// Float64ToDecimal converts the provided float64 to a google.type.Decimal.
-func Float64ToDecimal(f float64) *dpb.Decimal {
+// Float64ToProtoDecimal converts the provided float64 to a google.type.Decimal.
+func Float64ToProtoDecimal(f float64) *dpb.Decimal {
 	return &dpb.Decimal{
 		Value: fmt.Sprintf("%f", f),
 	}
 }
 
-// FloatToDecimal converts the provided big.Float to a google.type.Decimal.
-func FloatToDecimal(f *big.Float) *dpb.Decimal {
+// FloatToProtoDecimal converts the provided big.Float to a google.type.Decimal.
+func FloatToProtoDecimal(f *big.Float) *dpb.Decimal {
 	return &dpb.Decimal{
 		Value: f.String(),
 	}

@@ -37,7 +37,7 @@ func TestDecimal(t *testing.T) {
 		"123.45e0":     "123.45",
 	} {
 		decimalPb := &dpb.Decimal{Value: v}
-		float, err := DecimalToFloat(decimalPb)
+		float, err := ProtoDecimalToFloat(decimalPb)
 		if err != nil {
 			t.Error(err)
 			continue
@@ -45,7 +45,7 @@ func TestDecimal(t *testing.T) {
 		t.Run("ToFloat/"+v, func(t *testing.T) {
 			assertEqual(t, "FloatEqual", float.String(), want)
 			t.Run("ToDecimal", func(t *testing.T) {
-				d := FloatToDecimal(float)
+				d := FloatToProtoDecimal(float)
 				assertEqual(t, "DecimalEqual", d.GetValue(), want)
 			})
 		})
@@ -66,7 +66,7 @@ func TestDecimal(t *testing.T) {
 		"123.45e0":    123.45,
 	} {
 		decimalPb := &dpb.Decimal{Value: v}
-		float, _, err := DecimalToFloat64(decimalPb)
+		float, _, err := ProtoDecimalToFloat64(decimalPb)
 		if err != nil {
 			t.Error(err)
 			continue
@@ -74,7 +74,7 @@ func TestDecimal(t *testing.T) {
 		t.Run("ToFloat64/"+v, func(t *testing.T) {
 			assertEqual(t, "Float64Equal", float, want)
 			t.Run("ToDecimal", func(t *testing.T) {
-				d := Float64ToDecimal(float)
+				d := Float64ToProtoDecimal(float)
 				assertEqual(t, "DecimalEqual", d.GetValue(), fmt.Sprintf("%f", want))
 			})
 		})
@@ -82,7 +82,7 @@ func TestDecimal(t *testing.T) {
 
 	// Test the error case for float64 conversion.
 	t.Run("ErrorCase", func(t *testing.T) {
-		_, _, err := DecimalToFloat64(&dpb.Decimal{Value: "invalid"})
+		_, _, err := ProtoDecimalToFloat64(&dpb.Decimal{Value: "invalid"})
 		if err == nil {
 			t.Errorf("Expected error, got %v.", err)
 		}

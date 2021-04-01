@@ -24,10 +24,10 @@ import (
 	durpb "google.golang.org/protobuf/types/known/durationpb"
 )
 
-// DateTimeToNativeTime returns a new Time based on the google.type.DateTime.
+// ProtoDateTimeToTime returns a new Time based on the google.type.DateTime.
 //
 // It errors if it gets invalid time zone information.
-func DateTimeToNativeTime(d *dtpb.DateTime) (time.Time, error) {
+func ProtoDateTimeToTime(d *dtpb.DateTime) (time.Time, error) {
 	var err error
 
 	// Determine the location.

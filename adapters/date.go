@@ -20,26 +20,26 @@ import (
 	dpb "google.golang.org/genproto/googleapis/type/date"
 )
 
-// DateToNativeLocalTime returns a new Time based on the google.type.Date, in
+// ProtoDateToLocalTime returns a new Time based on the google.type.Date, in
 // the system's time zone.
 //
 // Hours, minues, seconds, and nanoseconds are set to 0.
-func DateToNativeLocalTime(d *dpb.Date) time.Time {
-	return DateToNativeTime(d, time.Local)
+func ProtoDateToLocalTime(d *dpb.Date) time.Time {
+	return ProtoDateToTime(d, time.Local)
 }
 
-// DateToNativeUTCTime returns a new Time based on the google.type.Date, in UTC.
+// ProtoDateToUTCTime returns a new Time based on the google.type.Date, in UTC.
 //
 // Hours, minutes, seconds, and nanoseconds are set to 0.
-func DateToNativeUTCTime(d *dpb.Date) time.Time {
-	return DateToNativeTime(d, time.UTC)
+func ProtoDateToUTCTime(d *dpb.Date) time.Time {
+	return ProtoDateToTime(d, time.UTC)
 }
 
-// DateToNativeTime returns a new Time based on the google.type.Date and provided
+// ProtoDateToTime returns a new Time based on the google.type.Date and provided
 // *time.Location.
 //
 // Hours, minutes, seconds, and nanoseconds are set to 0.
-func DateToNativeTime(d *dpb.Date, l *time.Location) time.Time {
+func ProtoDateToTime(d *dpb.Date, l *time.Location) time.Time {
 	return time.Date(int(d.GetYear()), time.Month(d.GetMonth()), int(d.GetDay()), 0, 0, 0, 0, l)
 }
 

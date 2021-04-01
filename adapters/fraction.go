@@ -20,14 +20,14 @@ import (
 	fpb "google.golang.org/genproto/googleapis/type/fraction"
 )
 
-// FractionToRat returns a math/big Rat (rational number) based on the given
+// ProtoFractionToRat returns a math/big Rat (rational number) based on the given
 // google.type.fraction.
-func FractionToRat(f *fpb.Fraction) *big.Rat {
+func ProtoFractionToRat(f *fpb.Fraction) *big.Rat {
 	return big.NewRat(f.GetNumerator(), f.GetDenominator())
 }
 
-// RatToFraction returns a google.type.Fraction from a math/big Rat.
-func RatToFraction(r *big.Rat) *fpb.Fraction {
+// RatToProtoFraction returns a google.type.Fraction from a math/big Rat.
+func RatToProtoFraction(r *big.Rat) *fpb.Fraction {
 	return &fpb.Fraction{
 		Numerator:   r.Num().Int64(),
 		Denominator: r.Denom().Int64(),

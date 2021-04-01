@@ -24,7 +24,7 @@ import (
 func TestMonth(t *testing.T) {
 	for m := range mpb.Month_name {
 		t.Run("Native", func(t *testing.T) {
-			native := ToNativeMonth(mpb.Month(m))
+			native := ToMonth(mpb.Month(m))
 			assertEqual(t, native.String(), int(native), int(m))
 		})
 		t.Run("PB", func(t *testing.T) {

@@ -38,7 +38,7 @@ func TestColorRGBA(t *testing.T) {
 		{"NoAlpha", &cpb.Color{Red: 0, Green: 0.5, Blue: 0, Alpha: &wpb.FloatValue{Value: 0}}, &color.RGBA{R: 0, G: 128, B: 0, A: 0}},
 	} {
 		t.Run(test.name, func(t *testing.T) {
-			rgba := ColorToRGBA(test.color)
+			rgba := ProtoColorToRGBA(test.color)
 			t.Run("RGBA", func(t *testing.T) {
 				assertEqual(t, "R", rgba.R, test.rgba.R)
 				assertEqual(t, "G", rgba.G, test.rgba.G)
@@ -46,7 +46,7 @@ func TestColorRGBA(t *testing.T) {
 				assertEqual(t, "A", rgba.A, test.rgba.A)
 			})
 			t.Run("Color", func(t *testing.T) {
-				color := RGBAToColor(rgba)
+				color := RGBAToProtoColor(rgba)
 				assertEqual(t, "Red", color.GetRed(), test.color.GetRed())
 				assertEqual(t, "Green", color.GetGreen(), test.color.GetGreen())
 				assertEqual(t, "Blue", color.GetBlue(), test.color.GetBlue())
