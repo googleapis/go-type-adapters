@@ -4,7 +4,7 @@
 ![latest release](https://img.shields.io/github/v/release/googleapis/go-type-adapters)
 ![go version](https://img.shields.io/github/go-mod/go-version/googleapis/go-type-adapters)
 
-This library provides helper functions for converting between the Golang
+This library provides helper functions for converting between the Go
 proto messages in `google.type` (as found in [genproto][]) and Golang native
 types.
 
