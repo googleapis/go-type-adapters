@@ -21,7 +21,7 @@ import "testing"
 func assertEqual(t *testing.T, name string, got, want interface{}) {
 	t.Run(name, func(t *testing.T) {
 		if got != want {
-			t.Errorf("Got %v, expected %v.", got, want)
+			t.Errorf("got %v, want %v.", got, want)
 		}
 	})
 }
