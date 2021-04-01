@@ -1,4 +1,4 @@
-# Golang google.type Apapters
+# Go google.type Adapters
 
 ![ci](https://github.com/googleapis/go-type-adapters/workflows/ci/badge.svg)
 ![latest release](https://img.shields.io/github/v/release/googleapis/go-type-adapters)
