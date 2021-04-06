@@ -9,8 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ["1.11", "1.12", "1.13", "1.14", "1.15", "1.16"]
-    container: golang:${{ matrix.go_version }}
+        docker_image:
+          - golang:1.11
+          - golang:1.12
+          - golang:1.13
+          - golang:1.14
+          - golang:1.15
+          - golang:1.16
+    container: ${{ matrix.docker_image }}
     steps:
       - uses: actions/checkout@v2
       - run: go test -p 1 ./...
