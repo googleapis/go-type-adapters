@@ -1,0 +1,25 @@
+---
+name: ci
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go_version: ["1.11", "1.12", "1.13", "1.14", "1.15", "1.16"]
+    container: golang:${{ matrix.go_version }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: go test -p 1 ./...
+  lint:
+    runs-on: ubuntu-latest
+    container: golang:1.16
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install golangci-lint
+        run: curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin latest
+      - name: Run golangci-lint
+        run: golangci-lint run ./...
