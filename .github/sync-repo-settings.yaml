@@ -1,0 +1,18 @@
+rebaseMergeAllowed: false
+squashMergeAllowed: true
+mergeCommitAllowed: false
+branchProtectionRules:
+  - pattern: main
+    isAdminEnforced: true
+    requiredStatusCheckContexts:
+      - unit-tests
+      - lint
+      - cla/google
+    requiredApprovingReviewCount: 1
+    requiresCodeOwnerReviews: true
+    requiresStrictStatusChecks: true
+permissionRules:
+  - team: yoshi-go
+    permission: push
+  - team: actools-go
+    permission: push
