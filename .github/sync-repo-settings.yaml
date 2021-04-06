@@ -12,8 +12,6 @@ branchProtectionRules:
     requiresCodeOwnerReviews: true
     requiresStrictStatusChecks: true
 permissionRules:
-  - user: lukesneeringer
-    permission: admin
   - team: yoshi-go
     permission: push
   - team: actools-go
