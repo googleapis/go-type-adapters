@@ -25,7 +25,7 @@ func ToMonth(m mpb.Month) time.Month {
 	return time.Month(m.Number())
 }
 
-// ToProtoMonth converts a golang Month to a google.type.Month.
+// ToProtoMonth converts a Go Month to a google.type.Month.
 func ToProtoMonth(m time.Month) mpb.Month {
 	return mpb.Month(m)
 }
