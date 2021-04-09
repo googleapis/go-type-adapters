@@ -5,7 +5,7 @@
 ![go version](https://img.shields.io/github/go-mod/go-version/googleapis/go-type-adapters)
 
 This library provides helper functions for converting between the Go
-proto messages in `google.type` (as found in [genproto][]) and Golang native
+proto messages in `google.type` (as found in [genproto][]) and Go native
 types.
 
 Full docs are at https://pkg.go.dev/github.com/googleapis/go-type-adapters.
@@ -13,7 +13,7 @@ Full docs are at https://pkg.go.dev/github.com/googleapis/go-type-adapters.
 ### Example
 
 As a simple example, this library can convert between a `google.type.Decimal`
-([proto definition][], [Go docs][]) and a Golang [big.Float][]:
+([proto definition][], [Go docs][]) and a Go [big.Float][]:
 
 ```go
 import (
@@ -27,7 +27,7 @@ func main() {
   if err != nil {
     panic(err)
   }
-  // flt is a Golang *big.Float and can be used as such...
+  // flt is a Go *big.Float and can be used as such...
 }
 ```
 
