@@ -3,4 +3,6 @@
   commitMessagePrefix: "chore: ",
   groupName: "all",
   postUpdateOptions: ["gomodTidy"],
+  rebaseWhen: "behind-base-branch",
+  labels: ["automerge"],
 }
