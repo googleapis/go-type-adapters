@@ -5,4 +5,5 @@
   postUpdateOptions: ["gomodTidy"],
   rebaseWhen: "behind-base-branch",
   labels: ["automerge"],
+  schedule: "on tuesday",
 }
