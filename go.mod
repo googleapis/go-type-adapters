@@ -4,6 +4,6 @@ go 1.11
 
 require (
 	github.com/golang/protobuf v1.5.2
-	google.golang.org/genproto v0.0.0-20210713002101-d411969a0d9a
+	google.golang.org/genproto v0.0.0-20210719143636-1d5a45f8e492
 	google.golang.org/protobuf v1.27.1
 )
