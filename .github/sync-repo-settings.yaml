@@ -5,12 +5,12 @@ branchProtectionRules:
   - pattern: main
     isAdminEnforced: true
     requiredStatusCheckContexts:
-      - unit-tests (golang:1.11)
-      - unit-tests (golang:1.12)
-      - unit-tests (golang:1.13)
-      - unit-tests (golang:1.14)
-      - unit-tests (golang:1.15)
-      - unit-tests (golang:1.16)
+      - ci / unit-tests (1.11)
+      - ci / unit-tests (1.12)
+      - ci / unit-tests (1.13)
+      - ci / unit-tests (1.14)
+      - ci / unit-tests (1.15)
+      - ci / unit-tests (1.16)
       - lint
       - cla/google
     requiredApprovingReviewCount: 1
