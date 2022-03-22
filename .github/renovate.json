@@ -1,9 +1,16 @@
 {
-  extends: ["config:base"],
-  commitMessagePrefix: "chore: ",
-  groupName: "all",
-  postUpdateOptions: ["gomodTidy"],
-  rebaseWhen: "behind-base-branch",
-  labels: ["automerge"],
-  schedule: "on tuesday",
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard"
+  ],
+  "commitMessagePrefix": "chore: ",
+  "groupName": "all",
+  "postUpdateOptions": [
+    "gomodTidy"
+  ],
+  "rebaseWhen": "behind-base-branch",
+  "labels": [
+    "automerge"
+  ],
+  "schedule": "on tuesday"
 }
