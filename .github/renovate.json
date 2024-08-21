@@ -12,5 +12,10 @@
   "labels": [
     "automerge"
   ],
-  "schedule": "on tuesday"
+  "schedule": "on tuesday",
+  "force": {
+    "constraints": {
+      "go": "1.21"
+    }
+  }
 }
